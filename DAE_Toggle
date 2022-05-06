@@ -1,0 +1,3 @@
+const effect = actor.effects.filter(i => i.data.label === 'NAME OF EFFECT GOES HERE')[0];
+if(!effect) return ui.notifications.error('Error: Effect not found.');
+await effect.update({'disabled': !effect.data.disabled});

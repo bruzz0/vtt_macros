@@ -1,0 +1,10 @@
+main()
+function main() {
+    const tok = canvas.tokens.controlled[0] || token
+    const roll = new Roll("1d8")
+    roll.toMessage({flavor: `${tok.name} gets an initiative bonus (Gift of Alacrity)!`})
+    const tieb = (actor.data.data.abilities.dex.value / 100)
+    const bonus = parseInt(roll.result)
+    const combatant = game.combat.getCombatantByToken(tok.id)
+    token.combatant.update({_id: combatant._id, initiative: parseInt(combatant.initiative) + bonus + tieb})
+}
